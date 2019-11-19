@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Escape me</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/2.css" />
+    <link rel="stylesheet" type="text/css" href="css/3rd-parties.css" />
+    <link
+      href="fonts/fontawesome-free-5.11.2-web/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="3rd-parties/cssmap-continents/cssmap-continents/cssmap-continents.css"
+      media="screen"
+    />
+    <script src="js/3rd-parties.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/2.js"></script>
+  </head>
+  <body>
+    <div class="image-container">
+      <h1><i class="fas fa-search-location"></i></h1>
+      <img src="images/question.jpg" />
+    </div>
+    <!-- CSSMap - Continents -->
+    <div class="row">
+      <div id="map-continents">
+        <ul class="continents">
+          <li class="c1"><a href="#africa">Africa</a></li>
+          <li class="c2"><a href="#asia">Asia</a></li>
+          <li class="c3"><a href="#australia">Australia</a></li>
+          <li class="c4">
+            <a onclick="selectEurope()" href="#europe">Europe</a>
+          </li>
+          <li onclick="selectNorthAmerica()" class="c5">
+            <a href="#north-america">North America</a>
+          </li>
+          <li class="c6"><a href="#south-america">South America</a></li>
+        </ul>
+      </div>
+    </div>
+    <script src="js/jquery.cssmap.min.js"></script>
+  </body>
+</html>

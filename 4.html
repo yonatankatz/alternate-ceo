@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Escape me</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/3.css" />
+    <link rel="stylesheet" type="text/css" href="css/3rd-parties.css" />
+
+    <link
+      href="fonts/fontawesome-free-5.11.2-web/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="js/3rd-parties.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/4.js"></script>
+  </head>
+  <body>
+    <div class="center-screen">
+      <div>
+        <img src="images/lang2.jpg" />
+      </div>
+      <table>
+        <tr>
+          <td>
+            <input
+              class="clock"
+              id="1"
+              type="text"
+              maxlength="1"
+              size="1"
+              onkeyup="next(2)"
+            />
+          </td>
+          <td>
+            <input
+              id="2"
+              class="clock"
+              type="text"
+              maxlength="1"
+              size="1"
+              onkeyup="next(3)"
+            />
+          </td>
+          <td>
+            <input
+              id="3"
+              class="clock"
+              type="text"
+              maxlength="1"
+              size="1"
+              onkeyup="next(4)"
+            />
+          </td>
+          <td>
+            <input
+              id="4"
+              class="clock"
+              type="text"
+              maxlength="1"
+              size="1"
+              onkeyup="next(5)"
+            />
+          </td>
+          <td>
+            <input
+              id="5"
+              class="clock"
+              type="text"
+              maxlength="1"
+              size="1"
+              onkeyup="next(6)"
+            />
+          </td>
+        </tr>
+      </table>
+
+      <table style="margin-top: 20px;">
+        <tr>
+          <td>
+            <input
+              id="6"
+              class="clock"
+              type="text"
+              maxlength="1"
+              size="1"
+              onkeyup="next(7)"
+            />
+          </td>
+          <td>
+            <input
+              id="7"
+              class="clock"
+              type="text"
+              maxlength="1"
+              size="1"
+              onkeyup="next(8)"
+            />
+          </td>
+          <td>
+            <input
+              id="8"
+              class="clock"
+              type="text"
+              maxlength="1"
+              size="1"
+              onkeyup="next(9)"
+            />
+          </td>
+          <td>
+            <input
+              id="9"
+              class="clock"
+              type="text"
+              maxlength="1"
+              size="1"
+              onkeyup="next(10)"
+            />
+          </td>
+          <td>
+            <input id="10" class="clock" type="text" maxlength="1" size="1" />
+          </td>
+        </tr>
+      </table>
+
+      <button class="btn" onclick="checkValue()">
+        <i class="fa fa-lock"></i> UNLOCK
+      </button>
+    </div>
+  </body>
+</html>

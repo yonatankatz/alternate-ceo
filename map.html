@@ -1,0 +1,189 @@
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8" />
+    <title>South America Tour Map</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="map"></div>
+    <script>
+      var airports = {
+        eddf: {
+          center: { lat: 50.0264, lng: 8.54313 },
+          airportName: "Frankfurt am Main"
+        },
+        vtbs: {
+          center: { lat: 13.69, lng: 100.7501 },
+          airportName: "Bangkok"
+        },
+        kmia: {
+          center: { lat: 25.7932, lng: -80.2906 },
+          airportName: "Miami"
+        },
+        lszh: {
+          center: { lat: 47.4647, lng: 8.5491 },
+          airportName: "Zürich"
+        },
+        sbgl: {
+          center: { lat: -22.81, lng: -43.2506 },
+          airportName: "Rio de Janeiro Galeão"
+        },
+        sbbr: {
+          center: { lat: -15.8692, lng: -47.9208 },
+          airportName: "Brasilia"
+        },
+        sbfz: {
+          center: { lat: -3.77628, lng: -38.5326 },
+          airportName: "Fortaleza"
+        },
+        sbbe: {
+          center: { lat: -1.37925, lng: -48.4763 },
+          airportName: "Belem"
+        },
+        sbbv: {
+          center: { lat: 2.84139, lng: -60.6922 },
+          airportName: "Buena Vista"
+        },
+        svmi: {
+          center: { lat: 10.603056, lng: -66.99056 },
+          airportName: "Caracas"
+        },
+        svmc: {
+          center: { lat: 10.558056, lng: -71.727778 },
+          airportName: "Maracibo"
+        },
+        semt: {
+          center: { lat: -0.945833, lng: -80.678611 },
+          airportName: "Manta"
+        },
+        spnc: {
+          center: { lat: -9.879167, lng: -76.205556 },
+          airportName: "Huánuco"
+        },
+        spzo: {
+          center: { lat: -13.5357, lng: -71.9388 },
+          airportName: "Cusco"
+        }
+      };
+      var routes = {
+        glw1: {
+          from: "sbgl",
+          to: "sbbr"
+        },
+        glw2: {
+          from: "sbbr",
+          to: "sbfz"
+        },
+        glw3: {
+          from: "sbfz",
+          to: "sbbe"
+        },
+        glw4: {
+          from: "sbbe",
+          to: "sbbv"
+        },
+        glw5: {
+          from: "sbbv",
+          to: "svmi"
+        },
+        glw6: {
+          from: "svmi",
+          to: "svmc"
+        },
+        glw7: {
+          from: "svmc",
+          to: "semt"
+        },
+        glw8: {
+          from: "semt",
+          to: "spnc"
+        },
+        glw9: {
+          from: "spnc",
+          to: "spzo"
+        }
+      };
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 3,
+          center: { lat: 0, lng: 0 },
+          mapTypeId: "terrain",
+          styles: [
+            {
+              featureType: "all",
+              elementType: "all",
+              stylers: [
+                { invert_lightness: true },
+                { saturation: 10 },
+                { lightness: 30 },
+                { gamma: 0.5 },
+                { hue: "#435158" }
+              ]
+            }
+          ]
+        });
+
+        for (var airport in airports) {
+          var marker = new google.maps.Marker({
+            position: airports[airport].center,
+            icon: {
+              path: google.maps.SymbolPath.CIRCLE,
+              scale: 2,
+              strokeColor: "#1087b2"
+            },
+            map: map
+          });
+        }
+
+        for (var route in routes) {
+          var polyline = new google.maps.Polyline({
+            path: [
+              airports[routes[route].from].center,
+              airports[routes[route].to].center
+            ],
+            geodesic: true,
+            strokeColor: "#AC1E3F",
+            strokeOpacity: 1.0,
+            strokeWeight: 3,
+            map: map
+          });
+        }
+
+        for (var airport in airports) {
+          var tooltip = new google.maps.InfoWindow({
+            content: airports[airport].airportName,
+            position: airports[airport].center
+          });
+          var listener = new google.maps.event.addListener(
+            map,
+            "zoom_changed",
+            function() {
+              if (map.getZoom() > 5) {
+                tooltip.open(map);
+              } else {
+                tooltip.close();
+              }
+            }
+          );
+        }
+      }
+    </script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1LoOvq7e6NJnxJdk2aUi3KZrY5WqY-jI&callback=initMap"
+    ></script>
+  </body>
+</html>
